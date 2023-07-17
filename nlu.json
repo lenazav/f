@@ -1,96 +1,250 @@
 {
-    "project": {
-        "id": "zb-faq-cailapub-template_ru",
-        "name": "zb-faq-cailapub-template_ru",
-        "folder": "/platform"
+  "project" : {
+    "id" : "f-1000099066-oCN",
+    "name" : "f-1000099066-oCN",
+    "folder" : "/platform"
+  },
+  "settings" : {
+    "language" : "ru",
+    "spellingCorrection" : false,
+    "classificationAlgorithm" : "sts",
+    "timezone" : "Europe/Moscow",
+    "extendedSettings" : {
+      "tokenizerEngine" : "mystem",
+      "useShared" : false
     },
-    "settings": {
-        "language": "ru",
-        "spellingCorrection": false,
-        "classificationAlgorithm": "sts",
-        "validation": {
-            "phraseValidationEnabled": true,
-            "answerValidationEnabled": true,
-            "phraseValidationThreshold": 0.5,
-            "answerValidationThreshold": 0.8
-        },
-        "timezone": "Europe/Moscow",
-        "extendedSettings": {
-            "tokenizerEngine": "mystem",
-            "useShared": false
-        }
+    "shared" : false,
+    "validation" : {
+      "phraseValidationEnabled" : true,
+      "answerValidationEnabled" : true,
+      "phraseValidationThreshold" : 0.5,
+      "answerValidationThreshold" : 0.8
+    }
+  },
+  "intents" : [ {
+    "path" : "/как накапливаются баллы",
+    "answer" : "Баллы накапливаются при предъявлении карты в кассе кинотеатра и при покупке на сайте kinoteatr.ru (на сайте необходимо войти в личный кабинет). Обращаем внимание, что накопления происходят только за первые 4 купленные билета в сутки.",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "classificationRules" : {
+      "refs" : [ ]
     },
-    "intents": [
-        {
-            "path": "/пока",
-            "description": null,
-            "answer": null,
-            "customData": null,
-            "enabled": true,
-            "phrases": [
-                {
-                    "text": "пока",
-                    "entities": null
-                }
-            ],
-            "patterns": null,
-            "slots": null
-        },
-        {
-            "path": "/привет",
-            "description": null,
-            "answer": null,
-            "customData": null,
-            "enabled": true,
-            "phrases": [
-                {
-                    "text": "привет",
-                    "entities": null
-                }
-            ],
-            "patterns": null,
-            "slots": null
-        }
-    ],
-    "entities": [],
-    "enabledSystemEntities": [
-        "duckling.number",
-        "duckling.time",
-        "duckling.duration",
-        "duckling.phone-number",
-        "duckling.email",
-        "duckling.url"
-    ],
-    "systemEntities": [
-        {
-            "name": "duckling.number",
-            "version": "v2",
-            "enabled": true
-        },
-        {
-            "name": "duckling.time",
-            "version": "v2",
-            "enabled": true
-        },
-        {
-            "name": "duckling.duration",
-            "version": "v2",
-            "enabled": true
-        },
-        {
-            "name": "duckling.phone-number",
-            "version": "v2",
-            "enabled": true
-        },
-        {
-            "name": "duckling.email",
-            "version": "v2",
-            "enabled": true
-        },
-        {
-            "name": "duckling.url",
-            "version": "v2",
-            "enabled": true
-        }
-    ]
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/привилегии карты лояльности",
+    "answer" : "Вы можете накапливать бонусные баллы и в дальнейшем использовать их для оплаты билетов и покупок в кинобарах, бронировать билеты, выполнять задания и получать награды. Главное отличие новой карты «Бонус» - карта действует во всех кинотеатрах Объединённой сети «СИНЕМА ПАРК» и «Формула Кино».",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "зачем мне нужна карта?"
+    }, {
+      "text" : "для чего нужна карточка лояльности?"
+    }, {
+      "text" : "какие бонусы у карты лояльности?"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/получить карту",
+    "answer" : "Пластиковую карту лояльности Вы можете бесплатно получить при покупке билетов в кассах наших кинотеатров. Завести виртуальную карту лояльности можно, зарегистрировавшись на сайте kinoteatr.ru в разделе \"получить карту\".\n",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Как получить карту лояльности?"
+    }, {
+      "text" : "Как получить карточку?"
+    }, {
+      "text" : "Где оформить карту?"
+    }, {
+      "text" : "Как сделать карту?"
+    }, {
+      "text" : "Как оформить карточку?"
+    }, {
+      "text" : "Можно ли получить карту лояльности?"
+    }, {
+      "text" : "Что надо сделать чтобы получить карту?"
+    }, {
+      "text" : "Как стать участником программы лояльности?"
+    }, {
+      "text" : "Как получить виртуальную карту?"
+    }, {
+      "text" : "Как получить лояльную карту?"
+    }, {
+      "text" : "Хочу карту лояльности"
+    }, {
+      "text" : "Хочу сделать карту"
+    } ],
+    "classificationRules" : {
+      "refs" : [ {
+        "entityName" : "classRule_8098",
+        "predicate" : "CONTAINS"
+      } ]
+    },
+    "patterns" : [ ],
+    "slots" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/привет",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "привет"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "priority" : 0
+  }, {
+    "path" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ/Root/Новый вопрос",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "New question"
+    }, {
+      "text" : "Новый вопрос"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "priority" : 0
+  } ],
+  "entities" : [ {
+    "entity" : {
+      "name" : "classRule_8098",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false,
+      "hidden" : true
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "получить", "приобрести", "карта", "заказать", "членство", "оформить" ],
+      "value" : ""
+    } ]
+  } ],
+  "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ],
+  "spellerDictionary" : [ ],
+  "systemEntities" : [ {
+    "name" : "mystem.geo",
+    "enabled" : false
+  }, {
+    "name" : "mystem.persn",
+    "enabled" : false
+  }, {
+    "name" : "mystem.obsc",
+    "enabled" : false
+  }, {
+    "name" : "mystem.patrn",
+    "enabled" : false
+  }, {
+    "name" : "mystem.famn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.romn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.latn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.numb",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.intg",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.abbr",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.name",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.surn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.patr",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.geox",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.orgn",
+    "enabled" : false
+  }, {
+    "name" : "duckling.number",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.ordinal",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.amount-of-money",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.distance",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.time",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.date",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.time-of-day",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.duration",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.phone-number",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.email",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.url",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.interval",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "mlps-obscene.obscene",
+    "enabled" : false
+  }, {
+    "name" : "zb.datetime",
+    "enabled" : false
+  }, {
+    "name" : "zb.number",
+    "enabled" : false
+  } ],
+  "faq" : [ {
+    "intentPath" : "/KnowledgeBase/FAQ.Пустой шаблон FAQ/Root/Новый вопрос",
+    "replies" : [ {
+      "type" : "text",
+      "text" : "",
+      "markup" : "plain"
+    } ]
+  } ],
+  "skills" : [ ]
 }

@@ -1,24 +1,44 @@
 require: slotfilling/slotFilling.sc
-  module = sys.zb-common
-theme: /
+import com.justai.jaicf.activator.dialogflow.dialogflow
+import com.justai.jaicf.channel.jaicp.channels.TelephonyEvents.telephonyEvents
+import com.justai.jaicf.channel.telegram.telegram
 
-    state: Start
-        q!: $regex</start>
-        a: Начнём.
+val loyaltyProgramInfo = "Our loyalty program offers a range of benefits and opportunities. As a member, you'll enjoy the following privileges:\n\n- Earn points for every ticket purchase\n- Exclusive discounts on tickets and concessions\n- Early access to movie screenings\n- Special promotions and giveaways\n- Priority seating\n\nTo join our loyalty program, simply visit our website or ask our staff at the cinema. We'll be happy to assist you!"
 
-    state: Hello
-        intent!: /привет
-        a: Привет привет
+val mainScenario = scenario(dialogflow, telegram, telephonyEvents) {
+    state("start") {
+        activators {
+            event("start")
+        }
 
-    state: Bye
-        intent!: /пока
-        a: Пока пока
+        action {
+            reactions.run {
+                say("Welcome to our cinema! How can I assist you today?")
+                say("If you have any questions about our loyalty program, feel free to ask.")
+            }
+        }
+    }
 
-    state: KnowledgeBase
-        intentGroup!: /KnowledgeBase
-        a: Нашёл ответ в базе знаний!
-        script: $faq.pushReplies();
+    state("loyaltyProgram") {
+        activators {
+            regex(".*(loyalty|membership|program).*")
+        }
 
-    state: NoMatch
-        event!: noMatch
-        a: Я не понял. Вы сказали: {{$request.query}}
+        action {
+            reactions.say(loyaltyProgramInfo)
+        }
+    }
+
+    state("fallback") {
+        activators {
+            catchAll()
+        }
+
+        action {
+            reactions.run {
+                say("I'm sorry, I didn't quite understand. Could you please rephrase your question?")
+                say("If you want to know about our loyalty program, simply ask about it.")
+            }
+        }
+    }
+}
