@@ -112,6 +112,56 @@
       "refs" : [ ]
     },
     "priority" : 0
+  }, {
+    "path" : "/KnowledgeBase/FAQ.jyjrgtfdnjuythuj/Импорт/Зачем нужна колонка Enabled?",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Зачем нужна колонка Enabled?"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ "* {(enable*/вкл*/выкл*) * (колон*/~поле)} *" ],
+    "priority" : 0
+  }, {
+    "path" : "/KnowledgeBase/FAQ.jyjrgtfdnjuythuj/Импорт/Как получить карту лояльности?",
+    "enabled" : false,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Как оформить карточку"
+    }, {
+      "text" : "Как получить карту лояльности?"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ "* {(как*/где*/что*/хочу*) (оформить*/получить*/приобрести*/членство*/стать участником*/сделать*) (карту*/карточку*) (лояльности*/клуба*/лояльную*/виртуальную*)} *" ],
+    "priority" : 0
+  }, {
+    "path" : "/KnowledgeBase/FAQ.jyjrgtfdnjuythuj/Импорт",
+    "enabled" : true,
+    "shared" : false,
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "priority" : 0
+  }, {
+    "path" : "/KnowledgeBase/FAQ.jyjrgtfdnjuythuj",
+    "enabled" : true,
+    "shared" : false,
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "priority" : 0
+  }, {
+    "path" : "/Новый интент",
+    "enabled" : true,
+    "shared" : false,
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "priority" : 0
   } ],
   "entities" : [ {
     "entity" : {
@@ -245,6 +295,25 @@
       "text" : "",
       "markup" : "plain"
     } ]
+  }, {
+    "intentPath" : "/KnowledgeBase/FAQ.jyjrgtfdnjuythuj/Импорт/Зачем нужна колонка Enabled?",
+    "replies" : [ {
+      "type" : "text",
+      "text" : "Поле Enabled позволяет указать, должен ли вопрос распознаваться. Возможные значения: TRUE, FALSE; 1, 0."
+    } ]
+  }, {
+    "intentPath" : "/KnowledgeBase/FAQ.jyjrgtfdnjuythuj/Импорт/Как получить карту лояльности?",
+    "replies" : [ {
+      "type" : "text",
+      "text" : "Пластиковую карту лояльности Вы можете бесплатно получить при покупке билетов в кассах наших кинотеатров. Завести виртуальную карту лояльности можно на нашем сайте в разделе \"получить карту\", для этого Вам потребуется предварительно зарегестрироваться.",
+      "key" : "_a8rul4lid"
+    } ]
+  }, {
+    "intentPath" : "/KnowledgeBase/FAQ.jyjrgtfdnjuythuj/Импорт",
+    "replies" : [ ]
+  }, {
+    "intentPath" : "/KnowledgeBase/FAQ.jyjrgtfdnjuythuj",
+    "replies" : [ ]
   } ],
   "skills" : [ ]
 }

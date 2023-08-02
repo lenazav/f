@@ -1,44 +1,14 @@
-require: slotfilling/slotFilling.sc
-import com.justai.jaicf.activator.dialogflow.dialogflow
-import com.justai.jaicf.channel.jaicp.channels.TelephonyEvents.telephonyEvents
-import com.justai.jaicf.channel.telegram.telegram
+theme: /
 
-val loyaltyProgramInfo = "Our loyalty program offers a range of benefits and opportunities. As a member, you'll enjoy the following privileges:\n\n- Earn points for every ticket purchase\n- Exclusive discounts on tickets and concessions\n- Early access to movie screenings\n- Special promotions and giveaways\n- Priority seating\n\nTo join our loyalty program, simply visit our website or ask our staff at the cinema. We'll be happy to assist you!"
+    state: KnowledgeBase
+        intentGroup!: /KnowledgeBase
+        script:
+            $faq.pushReplies();
 
-val mainScenario = scenario(dialogflow, telegram, telephonyEvents) {
-    state("start") {
-        activators {
-            event("start")
-        }
+    state: Start
+        q!: $regex</start>
+        a: Добро пожаловать в наш Кинотеатр! Как я могу помочь вам?
 
-        action {
-            reactions.run {
-                say("Welcome to our cinema! How can I assist you today?")
-                say("If you have any questions about our loyalty program, feel free to ask.")
-            }
-        }
-    }
-
-    state("loyaltyProgram") {
-        activators {
-            regex(".*(loyalty|membership|program).*")
-        }
-
-        action {
-            reactions.say(loyaltyProgramInfo)
-        }
-    }
-
-    state("fallback") {
-        activators {
-            catchAll()
-        }
-
-        action {
-            reactions.run {
-                say("I'm sorry, I didn't quite understand. Could you please rephrase your question?")
-                say("If you want to know about our loyalty program, simply ask about it.")
-            }
-        }
-    }
-}
+    state: HowToGetACard
+        q: * {(как/где/что/хочу) (оформить/получить/приобрести/членство/стать участником/сделать) (карту/карточку) [лояльн*] [клуб*] [виртуальн*]} *
+        a: Пластиковую карту лояльности Вы можете бесплатно получить при покупке билетов в кассах наших кинотеатров. Завести виртуальную карту лояльности можно на нашем сайте в разделе "получить карту", для этого Вам потребуется предварительно зарегестрироваться.
